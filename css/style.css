@@ -54,3 +54,7 @@ label{
 .contSinistra{
     background-color: grey;
 }
+
+th, td{
+    padding: 0 2rem;
+}
