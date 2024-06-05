@@ -25,6 +25,8 @@ contButton.addEventListener('click', (event) => {
     }
 });
 
+// variabile risultato prezzo finale
+let risultato = 0;
 // variabili per assegnazione posto treno
 let posto = 1;
 let carr = 1;
@@ -33,8 +35,9 @@ let numTreno = 58900;
 
 // funzione che si attiva al click di genera
 function genera(){
-    let risultato;
 
+    // calcolo prezzo
+    let prezzoPagato = risultato
     // calcolo costi in base all'età selezionata
     if(eta.value === 'minorenne'){
         risultato = (kmPercorsi.value * 0.21) * 0.8;
@@ -46,11 +49,19 @@ function genera(){
         risultato = (kmPercorsi.value * 0.21);
         tipoTariffa.textContent = 'Tariffa Standard';
     }
+    // se ha preso più di un biglietto paga la somma
+    if(risultato !== 0){
+        risultato += prezzoPagato
+    }
     // inserimento costo personalizzato per età
     costoBigl.textContent = risultato.toFixed(2) + '€';
 
+
+
     // inserimento nome e cognome in maiuscolo
     textNomePasseggero.textContent = nomeCognome.value.toUpperCase();
+
+
 
     // inserimento numero carrozza
     carrozzaNr.textContent = `Carr ${carr} - Posto ${posto}`
@@ -63,7 +74,10 @@ function genera(){
         carrozzaNr.textContent = finePosti
         personeInPiedi++
     }
-    console.log(personeInPiedi)
+    
+
+
+
     // inserimento numero treno
     if(personeInPiedi < 90){
         codiceBiglietto.textContent = numTreno
@@ -74,4 +88,8 @@ function genera(){
         personeInPiedi = 0;
     }
     
+    // fine dell'inserimento e blocco degli input
+    nomeCognome.setAttribute('disabled', 'disabled')
+    kmPercorsi.setAttribute('disabled', 'disabled')
+    eta.setAttribute('disabled', 'disabled')
 };
