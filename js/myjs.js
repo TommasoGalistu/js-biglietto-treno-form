@@ -21,7 +21,7 @@ contButton.addEventListener('click', (event) => {
     if(tipoButton === 'genera'){
         genera()
     }else if(tipoButton === 'annulla'){
-        console.log('dentro annulla')
+        annulla()
     }
 });
 
@@ -93,3 +93,24 @@ function genera(){
     kmPercorsi.setAttribute('disabled', 'disabled')
     eta.setAttribute('disabled', 'disabled')
 };
+
+// funzione per annullare ordine, un click torna indietro, doppio click resetta
+let clickInAnnulla = 0
+// funzione torna indietro
+function annulla(){
+    // se il cliente clicca due volte resetta il testo
+    if(clickInAnnulla !== 0){
+        textNomePasseggero.textContent = 'Nome passeggero'
+        tipoTariffa.textContent = 'Scegli tariffa'
+        carrozzaNr.textContent = '-'
+        codiceBiglietto.textContent = '-'
+        costoBigl.textContent = '-'
+    }
+    // fine dell'inserimento e blocco degli input
+    nomeCognome.removeAttribute('disabled', 'disabled')
+    kmPercorsi.removeAttribute('disabled', 'disabled')
+    eta.removeAttribute('disabled', 'disabled')
+    
+    clickInAnnulla++
+    
+}
