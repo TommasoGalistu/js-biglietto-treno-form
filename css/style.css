@@ -15,8 +15,16 @@ main{
     background-color: white;
     color: red;
     border-radius: 10px;
-    /* debug */
-    height: 5rem;
     width: 80%;
     margin: auto;
+}
+
+form{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    padding: 1rem;
+}
+label{
+    display: block;
 }
