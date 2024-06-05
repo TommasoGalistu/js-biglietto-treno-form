@@ -94,6 +94,7 @@ function genera(){
     eta.setAttribute('disabled', 'disabled')
 };
 
+
 // funzione per annullare ordine, un click torna indietro, doppio click resetta
 let clickInAnnulla = 0
 // funzione torna indietro
