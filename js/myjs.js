@@ -28,6 +28,8 @@ contButton.addEventListener('click', (event) => {
 // variabili per assegnazione posto treno
 let posto = 1;
 let carr = 1;
+let personeInPiedi = 1;
+let numTreno = 58900;
 
 // funzione che si attiva al click di genera
 function genera(){
@@ -59,6 +61,17 @@ function genera(){
     }else if(carr === 9){
         let finePosti = 'In piedi'
         carrozzaNr.textContent = finePosti
+        personeInPiedi++
+    }
+    console.log(personeInPiedi)
+    // inserimento numero treno
+    if(personeInPiedi < 90){
+        codiceBiglietto.textContent = numTreno
+    }else{
+        numTreno++
+        carr = 1;
+        posto = 1;
+        personeInPiedi = 0;
     }
     
 };
