@@ -41,18 +41,24 @@ label{
 .contDettagli{
     width: 90%;
     margin: auto;
+    text-align: center;
+
 }
 .contFlex{
     display: flex;
+    justify-content: center;
 }
 .contSinistra, .contDestra{
     border: 1px solid grey;
     padding: 1rem;
+    min-height: 5rem;
+    
     
 }
 
 .contSinistra{
     background-color: grey;
+    max-width: 100%;
 }
 
 th, td{
